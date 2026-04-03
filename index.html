@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Hub | Full Stack Developer Portfolio</title>
+    <link rel="stylesheet" href="dashboard-style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-bg"></div>
+        <div class="particles"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <div class="logo">
+                <i class="fas fa-cube"></i>
+                <span>Project Hub</span>
+            </div>
+            <div class="header-info">
+                <span class="date" id="currentDate"></span>
+                <span class="time" id="currentTime"></span>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1 class="glitch" data-text="Choose Your Project">Choose Your Project</h1>
+            <p>Three powerful applications, one unified experience. Click any card to launch.</p>
+        </div>
+
+        <!-- Project Cards Grid -->
+        <div class="projects-grid">
+            <!-- Portfolio Card -->
+            <div class="project-card" data-project="portfolio">
+                <div class="card-glow"></div>
+                <div class="card-icon">
+                    <i class="fas fa-user-astronaut"></i>
+                </div>
+                <h2>Personal Portfolio</h2>
+                <p class="project-desc">Modern portfolio website with animations, skills showcase, and contact form. Perfect for freelancers and developers.</p>
+                <div class="tech-stack">
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                    <span>Animations</span>
+                </div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <i class="fas fa-code"></i>
+                        <span>450+ lines</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Responsive</span>
+                    </div>
+                </div>
+                <button class="launch-btn" data-project="portfolio">
+                    <span>Launch Portfolio</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Todo App Card -->
+            <div class="project-card" data-project="todo">
+                <div class="card-glow"></div>
+                <div class="card-icon">
+                    <i class="fas fa-check-double"></i>
+                </div>
+                <h2>Smart Todo App</h2>
+                <p class="project-desc">Advanced task manager with categories, priorities, due dates, and local storage. Never miss a task again.</p>
+                <div class="tech-stack">
+                    <span>LocalStorage</span>
+                    <span>Categories</span>
+                    <span>Priority</span>
+                    <span>Stats</span>
+                </div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <i class="fas fa-tasks"></i>
+                        <span>Task Manager</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Progress Tracking</span>
+                    </div>
+                </div>
+                <button class="launch-btn" data-project="todo">
+                    <span>Launch Todo App</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Product Page Card -->
+            <div class="project-card" data-project="product">
+                <div class="card-glow"></div>
+                <div class="card-icon">
+                    <i class="fas fa-store"></i>
+                </div>
+                <h2>Product Store</h2>
+                <p class="project-desc">E-commerce product listing with advanced filters, sorting, search, and shopping cart functionality.</p>
+                <div class="tech-stack">
+                    <span>Filters</span>
+                    <span>Sorting</span>
+                    <span>Cart</span>
+                    <span>Dark Mode</span>
+                </div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <i class="fas fa-filter"></i>
+                        <span>Advanced Filters</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Shopping Cart</span>
+                    </div>
+                </div>
+                <button class="launch-btn" data-project="product">
+                    <span>Launch Product Store</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Featured Section -->
+        <div class="featured-section">
+            <div class="featured-badge">
+                <i class="fas fa-star"></i>
+                <span>All Projects Include</span>
+            </div>
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h4>Fully Responsive</h4>
+                    <p>Works on all devices</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-database"></i>
+                    <h4>Local Storage</h4>
+                    <p>Data persistence</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Fast Performance</h4>
+                    <p>Optimized loading</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-palette"></i>
+                    <h4>Modern UI/UX</h4>
+                    <p>Smooth animations</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 Project Hub | All three projects are fully functional and production-ready</p>
+            <div class="footer-links">
+                <a href="#" id="openAllBtn"><i class="fas fa-external-link-alt"></i> Open All Projects</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal for Project Selection -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Launch Project</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage">Choose how you want to open this project:</p>
+                <div class="modal-options">
+                    <button id="openNewTab" class="modal-btn primary">
+                        <i class="fas fa-external-link-alt"></i>
+                        Open in New Tab
+                    </button>
+                    <button id="openSameTab" class="modal-btn secondary">
+                        <i class="fas fa-sync-alt"></i>
+                        Open in Same Tab
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard-script.js"></script>
+</body>
+</html>

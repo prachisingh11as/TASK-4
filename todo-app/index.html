@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartTodo | Advanced Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-check-circle"></i>
+                <h2>SmartTodo</h2>
+            </div>
+            
+            <div class="stats-dashboard">
+                <div class="stat-card">
+                    <i class="fas fa-tasks"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="totalTasks">0</span>
+                        <span class="stat-label">Total Tasks</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="completedTasks">0</span>
+                        <span class="stat-label">Completed</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chart-line"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="completionRate">0%</span>
+                        <span class="stat-label">Progress</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="categories">
+                <h3><i class="fas fa-tags"></i> Categories</h3>
+                <div class="category-list">
+                    <button class="category-btn active" data-cat="all">
+                        <i class="fas fa-list"></i> All Tasks
+                    </button>
+                    <button class="category-btn" data-cat="work">
+                        <i class="fas fa-briefcase"></i> Work
+                    </button>
+                    <button class="category-btn" data-cat="personal">
+                        <i class="fas fa-user"></i> Personal
+                    </button>
+                    <button class="category-btn" data-cat="shopping">
+                        <i class="fas fa-shopping-cart"></i> Shopping
+                    </button>
+                    <button class="category-btn" data-cat="health">
+                        <i class="fas fa-heartbeat"></i> Health
+                    </button>
+                </div>
+            </div>
+            
+            <div class="progress-section">
+                <h3>Weekly Progress</h3>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <p id="progressText">Great start!</p>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <h1 id="categoryTitle">All Tasks</h1>
+                <button class="add-task-btn" id="addTaskBtn">
+                    <i class="fas fa-plus"></i> New Task
+                </button>
+            </div>
+            
+            <!-- Task Input (Hidden by default) -->
+            <div class="task-input-container" id="taskInputContainer">
+                <div class="task-form">
+                    <input type="text" id="taskTitle" placeholder="Task title...">
+                    <textarea id="taskDesc" placeholder="Description (optional)"></textarea>
+                    <div class="task-options">
+                        <select id="taskCategory">
+                            <option value="work">💼 Work</option>
+                            <option value="personal">👤 Personal</option>
+                            <option value="shopping">🛒 Shopping</option>
+                            <option value="health">❤️ Health</option>
+                        </select>
+                        <input type="date" id="taskDueDate">
+                        <select id="taskPriority">
+                            <option value="low">🟢 Low Priority</option>
+                            <option value="medium" selected>🟡 Medium Priority</option>
+                            <option value="high">🔴 High Priority</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button id="saveTask" class="save-btn">Save Task</button>
+                        <button id="cancelTask" class="cancel-btn">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Search & Filter -->
+            <div class="search-filter">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search tasks...">
+                </div>
+                <div class="filter-options">
+                    <select id="priorityFilter">
+                        <option value="all">All Priorities</option>
+                        <option value="high">High Priority</option>
+                        <option value="medium">Medium Priority</option>
+                        <option value="low">Low Priority</option>
+                    </select>
+                    <select id="sortBy">
+                        <option value="date">Due Date</option>
+                        <option value="priority">Priority</option>
+                        <option value="created">Created Date</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Tasks List -->
+            <div class="tasks-container" id="tasksContainer">
+                <div class="empty-state">
+                    <i class="fas fa-clipboard-list"></i>
+                    <p>No tasks yet. Click "New Task" to get started!</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage"></span>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

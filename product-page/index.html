@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Product Store | Premium UI/UX</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-store"></i>
+                <span>PremiumStore</span>
+            </div>
+            
+            <div class="cart-icon" id="cartIcon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover Amazing Products</h1>
+            <p>Curated collection of high-quality items at best prices</p>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search products...">
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Filters Sidebar + Products Grid -->
+        <div class="main-layout">
+            <!-- Sidebar Filters -->
+            <aside class="filters-sidebar">
+                <div class="filter-group">
+                    <h3><i class="fas fa-tags"></i> Categories</h3>
+                    <div class="category-list" id="categoryList">
+                        <button class="filter-chip active" data-cat="all">All</button>
+                        <button class="filter-chip" data-cat="electronics">Electronics</button>
+                        <button class="filter-chip" data-cat="clothing">Clothing</button>
+                        <button class="filter-chip" data-cat="books">Books</button>
+                        <button class="filter-chip" data-cat="home">Home & Living</button>
+                        <button class="filter-chip" data-cat="sports">Sports</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3><i class="fas fa-dollar-sign"></i> Price Range</h3>
+                    <div class="price-range-container">
+                        <input type="range" id="priceRange" min="0" max="1000" value="1000">
+                        <div class="price-labels">
+                            <span>$0</span>
+                            <span>$<span id="priceValue">1000</span>+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3><i class="fas fa-star"></i> Minimum Rating</h3>
+                    <div class="rating-filter" id="ratingFilter">
+                        <button class="rating-chip" data-rating="0">All</button>
+                        <button class="rating-chip" data-rating="4">4★ & above</button>
+                        <button class="rating-chip" data-rating="4.5">4.5★ & above</button>
+                    </div>
+                </div>
+
+                <button class="reset-filters" id="resetFilters">
+                    <i class="fas fa-undo-alt"></i> Reset All Filters
+                </button>
+            </aside>
+
+            <!-- Products Area -->
+            <main class="products-area">
+                <!-- Sort and Results -->
+                <div class="products-header">
+                    <div class="results-count" id="resultsCount">Loading products...</div>
+                    <div class="sort-control">
+                        <label><i class="fas fa-sort"></i> Sort by:</label>
+                        <select id="sortBy">
+                            <option value="default">Default</option>
+                            <option value="priceLow">Price: Low to High</option>
+                            <option value="priceHigh">Price: High to Low</option>
+                            <option value="rating">Rating: Highest First</option>
+                            <option value="name">Name: A to Z</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="productsGrid">
+                    <!-- Loading Skeletons -->
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">Total: $<span id="cartTotal">0</span></div>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Added to cart!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
